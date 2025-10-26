@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>RAMDHAN OFFICIAL 👑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #000;
+      background-image: url('https://i.imgur.com/7g8u7JJ.png'); /* Ganti dengan link gambar Anda jika perlu */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .container {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 320px;
+      z-index: 2;
+    }
+    .title {
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 7px;
+      padding: 4px 15px;
+      border: 2px solid #7c19a8;
+      text-align: center;
+    }
+    .box {
+      width: 240px;
+      margin: 10px 0;
+      border: 2px solid #7c19a8;
+      border-radius: 10px;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      min-height: 35px;
+    }
+    .box input, .box select {
+      background: none;
+      border: none;
+      outline: none;
+      width: 100%;
+      text-align: center;
+      padding: 5px 0;
+      font-size: 1rem;
+    }
+    .box input {
+      color: #7CFF8E; /* Hijau muda */
+    }
+    .box input::placeholder {
+      color: #7CFF8E;
+      opacity: 1;
+    }
+    .box select {
+      color: #bdbdbd; /* Abu-abu */
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      text-align-last: center;
+      appearance: none;
+      cursor: pointer;
+    }
+    .box select option {
+      color: #444;
+      background: #fff;
+    }
+    .btn-box {
+      width: 240px;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #7c19a8;
+      border-radius: 10px;
+      background: none;
+      padding: 7px 0;
+    }
+    .btn {
+      background: none;
+      color: #7CFF8E;
+      font-weight: bold;
+      border: 2px solid #7c19a8;
+      border-radius: 6px;
+      padding: 7px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      outline: none;
+      transition: background .17s, color .17s;
+      text-shadow: 0 0 3px #3e8d57;
+    }
+    .btn:hover {
+      background: #7c19a8;
+      color: #fff;
+    }
+    /* Floating notification */
+    .notif {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      color: #7c19a8;
+      border: 2px solid #7c19a8;
+      border-radius: 12px;
+      box-shadow: 0 2px 20px #000a;
+      padding: 17px 19px;
+      font-size: 1.07rem;
+      display: none;
+      z-index: 100;
+      min-width: 140px;
+      text-align: center;
+      font-weight: bold;
+      animation: fadeInNotif 0.3s;
+    }
+    @keyframes fadeInNotif {
+      0% { opacity: 0; transform: translate(-50%,-60%);}
+      100% { opacity: 1; transform: translate(-50%,-50%);}
+    }
+    @media (max-width: 400px) {
+      .container, .box, .btn-box { width: 97vw; min-width: unset; }
+      .box, .btn-box { padding: 8px 3vw; }
+      .notif { min-width: 100px; padding: 10px 2vw; font-size: 0.99rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">RAMDHAN OFFICIAL 👑</div>
+    <!-- Kotak 1: Input Nomor WhatsApp -->
+    <div class="box">
+      <input id="waNum" type="text" placeholder="Masukan Nomor WhatsApp">
+    </div>
+    <!-- Kotak 2: Select Fitur -->
+    <div class="box">
+      <select id="fitur">
+        <option value="" selected disabled>Pilih Fitur</option>
+        <option value="BADAK V1">BADAK V1</option>
+        <option value="BADAKV2">BADAKV2</option>
+        <option value="BADAKV3">BADAKV3</option>
+      </select>
+    </div>
+    <!-- Kotak 3: Tombol -->
+    <div class="btn-box">
+      <button class="btn" onclick="gunakanFitur()">BADAK NOMOR</button>
+    </div>
+  </div>
+  <!-- Floating Notification -->
+  <div class="notif" id="notif">
+    SUCCES BADAK NOMOR ✅
+  </div>
+  <script>
+    function gunakanFitur() {
+      const waNum = document.getElementById('waNum').value.trim();
+      const fitur = document.getElementById('fitur').value;
+      if (!waNum || !fitur) {
+        alert('Masukan nomor WhatsApp dan pilih fitur!');
+        return;
+      }
+      const notif = document.getElementById('notif');
+      notif.textContent = 'SUCCES BADAK NOMOR ✅';
+      notif.style.display = 'block';
+      setTimeout(() => {
+        notif.style.display = 'none';
+      }, 1700);
+    }
+  </script>
+</body>
+</html>
